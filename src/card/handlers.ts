@@ -2,14 +2,23 @@ import type { Request, Response } from 'express';
 import { validateCardService } from './services';
 import { validateCardSchema } from '../schema/schema';
 import { ZodError } from 'zod';
+
 class CardHandler {
   ValidateCard = (req: Request, res: Response) => {
     try {
       const result = validateCardSchema.parse(req.body);
-      const { cardNumber } = validateCardService(result);
-      res.status(200).json(result);
+      console.log('PARSED:', result);
+      const serviceResult = validateCardService(result);
+      if (!serviceResult.ok) {
+        return res.status(400).json({
+          ok: false,
+          reason: serviceResult.reason,
+        });
+      }
+
+      res.status(200).json(serviceResult);
       return;
-    } catch (err: any) {
+    } catch (err: unknown) {
       if (err instanceof ZodError) {
         res.status(400).json({
           ok: false,
