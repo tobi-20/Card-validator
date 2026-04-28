@@ -1,19 +1,18 @@
-import { is } from 'zod/v4/locales';
-
-function checkLun(n: string) {
+export function checkLuhn(n: string) {
   //"1234567895747374266"
-  let i;
+
   let sum = 0;
   let isSecond = false;
-  for (i = n.length - 1; i >= 0; i--) {
+  if (!/^\d+$/.test(n)) return false; // only digits allowed in string literal
+  for (let i = n.length - 1; i >= 0; i--) {
     let digit = Number(n[i]);
     if (isSecond) {
-      digit = digit * 2;
-      sum += digit % 10;
-      sum += Math.floor(digit / 10);
-    } else {
-      sum += digit;
+      digit *= 2;
+      if (digit > 9) {
+        digit -= 9;
+      }
     }
+    sum += digit;
 
     isSecond = !isSecond;
   }

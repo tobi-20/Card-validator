@@ -1,8 +1,10 @@
+import { checkLuhn } from '../helpers/luhn';
 import { ValidateCardInput } from '../schema/schema';
 
 export function validateCardService(input: ValidateCardInput) {
-  if (!input) {
-    throw new Error('Card number required');
+  if (!checkLuhn(input.cardNumber)) {
+    throw new Error('Card number invalid');
   }
+
   return { valid: true, cardNumber: input };
 }

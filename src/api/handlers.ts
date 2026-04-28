@@ -11,15 +11,13 @@ class CardHandler {
       return;
     } catch (err: any) {
       if (err instanceof ZodError) {
-        res
-          .status(400)
-          .json({
-            ok: false,
-            errors: 'Invalid: input digits should be between 13 to 19 digits',
-          });
+        res.status(400).json({
+          ok: false,
+          errors: 'Invalid: input digits should be between 13 to 19 digits',
+        });
         return;
       }
-      res.status(500).json({ ok: false, error: 'Something went wrong' });
+      res.status(500).json({ ok: false, error: (err as Error).message });
       return;
     }
   };
