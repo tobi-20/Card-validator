@@ -6,8 +6,8 @@ class CardHandler {
   ValidateCard = (req: Request, res: Response) => {
     try {
       const result = validateCardSchema.parse(req.body);
-      const data = validateCardService(result);
-      res.status(200).json({ ok: true });
+      const { cardNumber } = validateCardService(result);
+      res.status(200).json({ ok: true, cardNumber });
       return;
     } catch (err: any) {
       if (err instanceof ZodError) {

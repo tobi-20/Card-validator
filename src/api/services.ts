@@ -6,5 +6,5 @@ export function validateCardService(input: ValidateCardInput) {
     throw new Error('Card number invalid');
   }
 
-  return { valid: true, cardNumber: input };
+  return { valid: true, cardNumber: input.cardNumber };
 }
