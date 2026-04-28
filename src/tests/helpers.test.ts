@@ -1,4 +1,4 @@
-import { checkLuhn } from './luhn';
+import { checkLuhn } from '../helpers/luhn';
 
 describe('checkLuhn', () => {
   it('should reject string literals that return false', () => {

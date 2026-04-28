@@ -1,8 +1,9 @@
-import { validateCardService } from './services';
+import { validateCardService } from '../card/services';
 
 describe('validateCardService', () => {
   it('should reject invalid input', () => {
-    expect(() => validateCardService({ cardNumber: '' })).toThrow();
+    const result = validateCardService({ cardNumber: '' });
+    expect(result.valid).toBe(false);
   });
 
   it('should accept valid input', () => {

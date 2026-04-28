@@ -1,4 +1,4 @@
-import { validateCardSchema } from './schema';
+import { validateCardSchema } from '../schema/schema';
 
 describe('validateCardSchema', () => {
   it('should reject numbers', () => {

@@ -1,5 +1,5 @@
 import express from 'express';
-import { cardHandler } from './api/handlers';
+import { cardHandler } from './card/handlers';
 const app = express();
 
 app.use(express.json());
