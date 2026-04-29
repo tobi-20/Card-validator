@@ -2,7 +2,7 @@ import { validateCardService } from '../card/services';
 
 describe('validateCardService', () => {
   it('should reject invalid input', () => {
-    const result = validateCardService({ cardNumber: '' });
+    const result = validateCardService({ cardNumber: '4242424242424241' });
     expect(result.ok).toBe(false);
   });
 
