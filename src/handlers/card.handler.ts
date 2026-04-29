@@ -22,7 +22,7 @@ class CardHandler {
       if (err instanceof ZodError) {
         res.status(400).json({
           ok: false,
-          errors: 'Invalid card number',
+          errors: err.issues[0]?.message,
         });
         return;
       }
