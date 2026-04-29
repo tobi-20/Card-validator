@@ -2,7 +2,7 @@ import { checkLuhn } from '../lib/luhn';
 
 describe('checkLuhn', () => {
   it('should reject string literals that return false', () => {
-    expect(checkLuhn('123')).toBeFalsy();
+    expect(checkLuhn('1235657897653')).toBeFalsy();
   });
 
   it('should return true  for  valid string literals string', () => {

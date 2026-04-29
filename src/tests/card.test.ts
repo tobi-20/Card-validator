@@ -1,4 +1,4 @@
-import { validateCardService } from '../card/services';
+import { validateCardService } from '../services/card.service';
 
 describe('validateCardService', () => {
   it('should reject invalid input', () => {

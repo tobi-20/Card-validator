@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express';
-import { validateCardService } from './services';
+import { validateCardService } from '../services/card.service';
 import { validateCardSchema } from '../schema/schema';
 import { ZodError } from 'zod';
 
@@ -7,7 +7,7 @@ class CardHandler {
   ValidateCard = (req: Request, res: Response) => {
     try {
       const result = validateCardSchema.parse(req.body);
-      console.log('PARSED:', result);
+
       const serviceResult = validateCardService(result);
       if (!serviceResult.ok) {
         return res.status(400).json({

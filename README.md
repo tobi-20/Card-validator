@@ -44,7 +44,7 @@ Built with Node.js, TypeScript, and Express.
 
 ```json
 {
-  "valid": true,
+  "ok": true,
   "cardNumber": "4242424242424242"
 }
 ```
@@ -53,7 +53,7 @@ Built with Node.js, TypeScript, and Express.
 
 ```json
 {
-  "valid": false,
+  "ok": false,
   "reason": "Failed Luhn check"
 }
 ```
@@ -106,17 +106,14 @@ Server runs on: http://localhost:3000
 
 src/
 app.ts
-
-card/
-handlers.ts
-service.ts
-
+handlers/
+card.handler.ts
 lib/
 luhn.ts
-
 schema/
 schema.ts
-
+services/
+card.service.ts
 tests/
 card.test.ts
 lib.test.ts

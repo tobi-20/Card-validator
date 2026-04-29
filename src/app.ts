@@ -1,5 +1,5 @@
 import express from 'express';
-import { cardHandler } from './card/handlers';
+import { cardHandler } from './handlers/card.handler';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
